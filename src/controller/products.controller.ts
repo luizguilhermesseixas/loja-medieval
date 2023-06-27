@@ -8,6 +8,12 @@ async function create(req: Request, res: Response): Promise<Response> {
   return res.status(mapStatusHTTP(status)).json(data);
 }
 
+async function list(req: Request, res: Response): Promise<Response> {
+  const { status, data } = await productsService.list();
+  return res.status(mapStatusHTTP(status)).json(data);
+}
+
 export default {
   create,
+  list,
 };

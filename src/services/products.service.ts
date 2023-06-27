@@ -8,6 +8,12 @@ async function create(products: Product): Promise<ServiceResponse<ProductSequeli
   return { status: 'CREATED', data };
 }
 
+async function list(): Promise<ServiceResponse<ProductSequelizeModel[]>> {
+  const data = await ProductModel.findAll();
+  return { status: 'SUCCESSFUL', data };
+}
+
 export default {
   create,
+  list,
 };
